@@ -1,0 +1,39 @@
+<div class="card" style="width: 50rem;margin-left:20%;">
+    <div class="row">
+    <div class="card-body w-50 col-xs-6">
+      <h2 class="card-title" style="text-align: center;">SignUp</h2>
+      <div class="card-text">
+        <form #form='ngForm' (ngSubmit)=register(form)>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" name="firstName" aria-describedby="emailHelp" placeholder="Enter First Name" required ngModel #firstName="ngModel" >
+                <small *ngIf="firstName.touched && !firstName.valid"class="form-text text-muted alert alert-danger">First Name Must Not Be Blank</small>
+              </div>
+             <div class="form-group">
+                <label for="Last Name">Last Name</label>
+                <input type="text" class="form-control" name="lastName" aria-describedby="emailHelp" placeholder="Enter Last Name" ngModel>
+              </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" name="emailId" aria-describedby="emailHelp" placeholder="Enter email"required email ngModel #emailId="ngModel">
+              <small *ngIf="emailId.touched && !emailId.valid"class="form-text text-muted alert alert-danger">Email Id  Must  Be Valid</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" name="password" placeholder="Password" ngModel minlength="6" required #password="ngModel">
+              <small *ngIf="password.touched && !password.valid"class="form-text text-muted alert alert-danger">Password must be at least 6 digit</small>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!form.valid" style="margin-left: 40%;">Register
+              <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+            </button>
+            <div>
+            </div>
+          </form>
+          <small style="margin-left: 32%;">Already Registered<a routerLink="/login"> Login</a></small>
+        </div>
+    </div>
+    <div class="card-body w-50 col-xs-6"id="card2">
+    <img src="../../assets/register.png" alt="">
+    </div>
+  </div>
+</div>
